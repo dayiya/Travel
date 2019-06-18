@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <li class="item border-bottom"
-          v-for="item of recommendList" :key="item.id">
+          v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,35 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/eb/eb39cce9ccab5cada3.img.jpg_200x200_e409a517.jpg',
-        title: '锦绣中华民俗村',
-        desc: '一步迈进历史，一天游遍中华'
-      }, {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/eb/eb39cce9ccab5cada3.img.jpg_200x200_e409a517.jpg',
-        title: '锦绣中华民俗村',
-        desc: '一步迈进历史，一天游遍中华'
-      }, {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/eb/eb39cce9ccab5cada3.img.jpg_200x200_e409a517.jpg',
-        title: '锦绣中华民俗村',
-        desc: '一步迈进历史，一天游遍中华'
-      }, {
-        id: '004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/eb/eb39cce9ccab5cada3.img.jpg_200x200_e409a517.jpg',
-        title: '锦绣中华民俗村',
-        desc: '一步迈进历史，一天游遍中华'
-      }, {
-        id: '005',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/eb/eb39cce9ccab5cada3.img.jpg_200x200_e409a517.jpg',
-        title: '锦绣中华民俗村',
-        desc: '一步迈进历史，一天游遍中华'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

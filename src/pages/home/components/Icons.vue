@@ -1,12 +1,12 @@
 <template>
   <div class="icons">
-    <swiper >
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
       <div class="icon" v-for="item of page" :key="item.id">
         <div class="icon-img">
           <img class="icon-img-content" :src="item.imgUrl">
         </div>
-        <p class="icon-desc">{{item.decs}}</p>
+        <p class="icon-desc">{{item.desc}}</p>
       </div>
       </swiper-slide>
     </swiper>
@@ -15,51 +15,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        decs: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        decs: '滑雪季'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/87/20656da0ac042002.png',
-        decs: '泡温泉'
-      }, {
-        id: '0004',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/338c5b924c5809e8c7b14f60a953c3e2.png',
-        decs: '动植物园'
-      }, {
-        id: '0005',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/184e261814a5d07a5d3d08cd29cf590d.png',
-        decs: '玻璃栈道'
-      }, {
-        id: '0006',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/4573132ba33603c8c3dbacc4d46a1ac6.png',
-        decs: '罗浮山'
-      }, {
-        id: '0007',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/cba147cf6cfcea7109d0bff6aac6f626.png',
-        decs: '深圳欢乐谷'
-      }, {
-        id: '0008',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/90/59a2f523ee2f9202.png',
-        decs: '隐贤山庄'
-      }, {
-        id: '0009',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/90/59a2f523ee2f9202.png',
-        decs: '隐贤山庄'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
