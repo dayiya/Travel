@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <!--显示当前路径的内容-->
-    <router-view/>
+    <keep-alive>
+      <!--显示当前路径的内容-->
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
