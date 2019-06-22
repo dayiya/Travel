@@ -8,13 +8,18 @@
         {{this.bannerImgs.length}}
       </div>
     </div>
-    <common-gallary
-      @close="handleGallaryClose"
-      v-show="showGallary" :imgs="bannerImgs"></common-gallary>
+    <fade-animation>
+      <common-gallary
+        @close="handleGallaryClose"
+        v-show="showGallary"
+        :imgs="bannerImgs">
+      </common-gallary>
+    </fade-animation>
   </div>
 </template>
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',
   props: {
@@ -28,7 +33,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   methods: {
     handleBannerClick () {
@@ -55,18 +61,18 @@ export default {
       right: 0
       bottom: 0
       line-height: .6rem
-      color: #ffffff
+      color: #fff
       background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))
-      .banner-title
+      .banner-tittle
         flex: 1
         font-size: .32rem
         padding: 0 .2rem
       .banner-number
         height: .32rem
-        line-height: .4rem
+        line-height: .32rem
         margin-top: .14rem
         padding: 0 .4rem
-        border-radius: .32rem
+        border-radius: .2rem
         background: rgba(0, 0, 0, .8)
         font-size: .24rem
         .banner-icon
